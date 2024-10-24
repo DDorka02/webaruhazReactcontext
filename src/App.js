@@ -1,27 +1,15 @@
 import "./App.css";
 import Termekek from "./componens/Termekek";
 import { adatokLista } from "./adatok";
-import { useState } from "react";
+import { useContext } from "react";
 import Kosar from "./componens/Kosar";
+import { KattContext } from "./context/KattContext";
 
 function App() {
-  const [lista, setlista] = useState([]);
-  const [db, setdb] = useState(0);
-  const [ar, setar] = useState(0);
-  function katt(adat) {
-    const kosarLista = [...lista];
-    kosarLista.push(adat);
-    setlista([...kosarLista]);
-    let d = db;
-    d++;
-    setdb(d);
-   
+  
+  const {lista} = useContext(KattContext)
 
-    let a = ar;
-    a= a + adat.ar;
-    setar(a);
-   
-  }
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -30,12 +18,12 @@ function App() {
       </header>
       <main>
         <article>
-          <Termekek lista={adatokLista} katt={katt} />
+          <Termekek lista={adatokLista} />
         </article>
         <aside>
           <p>A kosár tartalma</p>
-          <p>A kosárba {db} db termék van</p>
-          <p>A kosárban levő termékek összege: {ar} Ft</p>
+          <p>A kosárba {} db termék van</p>
+          <p>A kosárban levő termékek összege: {} Ft</p>
           <Kosar lista={lista} kattintas={() => {}} />
         </aside>
         <footer>
@@ -44,6 +32,7 @@ function App() {
       </main>
     </div>
   );
+
 }
 
 export default App;
