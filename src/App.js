@@ -6,21 +6,18 @@ import Kosar from "./componens/Kosar";
 import { KattContext } from "./context/KattContext";
 
 function App() {
-  
   const {lista} = useContext(KattContext)
-
-  
   return (
     <div className="App">
       <header className="App-header">
         <h1>Webáruház</h1>
         <p>IKEA</p>
       </header>
-      <main>
-        <article>
+      <main className='container row'>
+        <article className='col-md-6'>
           <Termekek lista={adatokLista} />
         </article>
-        <aside>
+        <aside className='col-md-6'>
           <p>A kosár tartalma</p>
           <p>A kosárba {} db termék van</p>
           <p>A kosárban levő termékek összege: {} Ft</p>

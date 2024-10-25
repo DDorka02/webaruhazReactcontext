@@ -17,10 +17,11 @@ export const KattProvider = ({ children }) => {
       let a = ar;
       a= a + adat.ar;
       setar(a);
-     
+      
+    }   
   return (
     <KattContext.Provider value={{ lista, katt }}>
       {children}
     </KattContext.Provider>
   );
-}}
+}
